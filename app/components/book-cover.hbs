@@ -1,5 +1,26 @@
-<li>
+<li {{on "click" this.open}}>
   <strong>{{@book.title}}</strong><br><br>
   <em>by</em>
   {{@book.author.name}}
 </li>
+
+{{#if this.isShowingModal}}
+    {{#modal-dialog
+            onClose=this.close
+            clickOutsideToClose=true
+    }}
+        <div class="modal">
+            <h3>Purchase confirmation</h3>
+            You want to buy <strong>{{@book.title}}</strong> by {{@book.author.name}}.
+
+            <p>
+                <button {{on "click" this.close}}>Purchase for ${{@book.price}}!</button>
+            </p>
+
+            <p>
+                <em>Thank you! We will e-mail you your e-book</em>
+            </p>
+        </div>
+    {{/modal-dialog}}
+{{/if}}
+
