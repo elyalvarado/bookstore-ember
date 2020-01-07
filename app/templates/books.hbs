@@ -1,5 +1,5 @@
 <ul>
   {{#each @model as |book|}}
-    <BookCover @book={{book}} />
+    <BookCover @book={{book}} @blurBackground={{route-action "blurBackground"}}/>
   {{/each}}
 </ul>

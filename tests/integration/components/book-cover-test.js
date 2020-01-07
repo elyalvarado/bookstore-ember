@@ -10,32 +10,36 @@ module('Integration | Component | book-cover', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
     this.set('book',{ title: 'Test Title', author: { name: 'Test Author' }});
+    this.set('blurBackground', () => null);
 
-    await render(hbs`<BookCover @book={{this.book}}/>`);
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
     assert.ok(/Test Title/.test(this.element.textContent.trim()));
   });
 
   test('it renders the Book Author', async function(assert) {
     this.set('book',{ title: 'Test Title', author: { name: 'Test Author' }});
+    this.set('blurBackground', () => null);
 
-    await render(hbs`<BookCover @book={{this.book}}/>`);
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
     assert.ok(/Test Author/.test(this.element.textContent.trim()));
   });
 
   test('by default does not show the purchase confirmation', async function(assert) {
     this.set('book',{ title: 'Test Title', author: { name: 'Test Author' }});
+    this.set('blurBackground', () => null);
 
-    await render(hbs`<BookCover @book={{this.book}}/>`);
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
     assert.notOk(/Purchase confirmation/.test(this.element.textContent.trim()));
   });
 
   test('it shows the purchase confirmation modal when clicking on itself', async function(assert) {
     this.set('book',{ title: 'Test Title', author: { name: 'Test Author' }});
+    this.set('blurBackground', () => null);
 
-    await render(hbs`<BookCover @book={{this.book}}/>`);
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
     await click("li")
 
@@ -44,8 +48,9 @@ module('Integration | Component | book-cover', function(hooks) {
 
   test('it dismisses the purchase confirmation modal when clicking the purchase button', async function(assert) {
     this.set('book',{ title: 'Test Title', author: { name: 'Test Author' }});
+    this.set('blurBackground', () => null);
 
-    await render(hbs`<BookCover @book={{this.book}}/>`);
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
     await click("li")
 

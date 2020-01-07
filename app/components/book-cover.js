@@ -8,10 +8,16 @@ export default class BookCoverComponent extends Component {
   @action
   open() {
     this.isShowingModal = true
+    this.toggleBlur()
   }
 
   @action
   close() {
     this.isShowingModal = false
+    this.toggleBlur()
+  }
+
+  toggleBlur() {
+    this.args.blurBackground(this.isShowingModal)
   }
 }

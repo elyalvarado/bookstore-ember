@@ -2,4 +2,6 @@
   <LinkTo @route="books">Our Awesome Bookstore</LinkTo>
 </h2>
 
-{{outlet}}
+<div class="{{if this.blur 'blur-background'}}">
+  {{outlet}}
+</div>
