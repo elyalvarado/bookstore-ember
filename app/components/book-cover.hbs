@@ -1,7 +1,9 @@
 <li {{on "click" this.open}}>
   <strong>{{@book.title}}</strong><br><br>
   <em>by</em>
-  {{@book.author.name}}
+  <LinkTo @route="author" @model={{@book.author.id}} class="author">
+    {{@book.author.name}}
+  </LinkTo>
 </li>
 
 {{#if this.isShowingModal}}
