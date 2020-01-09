@@ -1,22 +1,35 @@
-<li {{on "click" this.open}}>
-  <strong>{{@book.title}}</strong><br><br>
-  <em>by</em>
-  <LinkTo @route="author" @model={{@book.author.id}} class="author">
-    {{@book.author.name}}
-  </LinkTo>
-</li>
+<div class="book" >
+  <div class="book__cover" {{on "click" this.open}}>
+      <strong class="book__cover-title">{{@book.title}}</strong><br><br>
+  </div>
+
+  <div class="book__description">
+      <div class="book__description-title" {{on "click" this.open}}>
+          {{@book.title}}
+      </div>
+      <span class="book__description-author">
+          By:
+          <LinkTo @route="author" @model={{@book.author.id}} class="author">
+            {{@book.author.name}}
+          </LinkTo>
+      </span>
+      <span class="book__description-price">
+          <ins>${{@book.price}}</ins>
+      </span>
+      <a class="book__description-buy btn" role="button" {{on "click" this.open}}>Buy</a>
+  </div>
+</div>
 
 {{#if this.isShowingModal}}
-    {{#modal-dialog
-            onClose=this.close
-            clickOutsideToClose=true
-    }}
+    {{#modal-dialog onClose=this.close clickOutsideToClose=true }}
         <div class="modal">
             <h3>Purchase confirmation</h3>
             You want to buy <strong>{{@book.title}}</strong> by {{@book.author.name}}.
 
             <p>
-                <button {{on "click" this.close}}>Purchase for ${{@book.price}}!</button>
+                <a href="javascript:void(0)" role="button" class="btn" {{on "click" this.close}}>
+                    Purchase for ${{@book.price}}!
+                </a>
             </p>
 
             <p>

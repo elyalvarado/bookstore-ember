@@ -1,10 +1,16 @@
-<h3>{{@model.name}}</h3>
+<div class="section-header">
+    <h2><span>Highlighted Author</span>{{@model.name}}</h2>
+</div>
 
-<strong>Biography</strong>: {{@model.bio}}
+{{#if @model.bio}}
+    <div class="author__biography">
+      {{@model.bio}}
+    </div>
+{{/if}}
 
 <h4>Published titles:</h4>
-<ul>
+<div class="books">
   {{#each @model.books as |book|}}
       <BookCover @book={{book}} @blurBackground={{route-action "blurBackground"}}/>
   {{/each}}
-</ul>
+</div>

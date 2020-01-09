@@ -1,7 +1,11 @@
-<h2 id="title">
-  <LinkTo @route="books">Our Awesome Bookstore</LinkTo>
-</h2>
+<header class="{{if this.blur 'blur-background'}}" data-theme="dark">
+    <div class="container">
+        <h2 class="page-title">
+            <LinkTo @route="books">Our Awesome Bookstore</LinkTo>
+        </h2>
+    </div>
+</header>
 
-<div class="{{if this.blur 'blur-background'}}">
-  {{outlet}}
+<div class="container {{if this.blur 'blur-background'}}" data-theme="dark">
+    {{outlet}}
 </div>
