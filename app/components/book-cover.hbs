@@ -27,9 +27,9 @@
             You want to buy <strong>{{@book.title}}</strong> by {{@book.author.name}}.
 
             <p>
-                <a href="javascript:void(0)" role="button" class="btn" {{on "click" this.close}}>
+                <span role="button" class="btn" {{on "click" this.close}}>
                     Purchase for ${{@book.price}}!
-                </a>
+                </span>
             </p>
 
             <p>

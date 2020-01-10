@@ -278,3 +278,10 @@ a {
   box-shadow: 0 0 5px 3px var(--modal-box-shadow);
   transition: opacity 400ms ease-in;
 }
+
+.modal .btn {
+  background-color: var(--bg-color);
+}
+.modal .btn:hover {
+  background: var(--primary-color);
+}

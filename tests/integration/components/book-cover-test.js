@@ -50,7 +50,7 @@ module('Integration | Component | book-cover', function(hooks) {
 
     await click(".book__cover")
 
-    await click(".modal a.btn")
+    await click(".modal .btn")
 
     assert.notOk(/Purchase confirmation/.test(this.element.textContent.trim()));
   });
