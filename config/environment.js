@@ -29,6 +29,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.BACKEND_HOST='http://localhost:3000'
   }
 
   if (environment === 'test') {
@@ -45,7 +46,10 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.BACKEND_HOST='https://blooming-retreat-62633.herokuapp.com'
   }
+
+  ENV.BUGSNAG_API_KEY = process.env.BUGSNAG_API_KEY;
 
   return ENV;
 };

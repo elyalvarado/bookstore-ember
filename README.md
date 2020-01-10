@@ -1,7 +1,8 @@
 # bookstore
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+
+This App is the frontend for a bookstore managed from GitHub, completely written in Ember 3.15. The companion backend app written in ruby on rails is also available at https://github.com/elyalvarado/bookstore-rails.
 
 ## Prerequisites
 
@@ -20,6 +21,8 @@ You will need the following things properly installed on your computer.
 * `yarn install`
 
 ## Running / Development
+
+Make sure there is a backend server configured. (check the readme in the [rails backend](https://github.com/elyalvarado/bookstore-rails)). If running on a non standard port, edit `config/environment.js` and make sure the `BACKEND_HOST` key points to the URL of your development server.
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
@@ -44,10 +47,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 

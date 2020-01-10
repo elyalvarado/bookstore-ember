@@ -1,9 +1,12 @@
-{{#if this.showAll}}
-  <button type="button" {{on "click" (route-action "toggleShowAll")}}>Show All</button>
-{{/if}}
+<div class="section-header">
+  <h2><span>People’s Choice</span>Bestselling Books</h2>
+  {{#if this.showAll}}
+      <span class="btn" role="button" {{on "click" (route-action "toggleShowAll")}}>View All</span>
+  {{/if}}
+</div>
 
-<ul>
+<div class="books">
   {{#each this.model as |book|}}
     <BookCover @book={{book}} @blurBackground={{route-action "blurBackground"}}/>
   {{/each}}
-</ul>
+</div>

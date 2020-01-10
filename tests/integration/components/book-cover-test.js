@@ -29,10 +29,18 @@ module('Integration | Component | book-cover', function(hooks) {
     assert.notOk(/Purchase confirmation/.test(this.element.textContent.trim()));
   });
 
-  test('it shows the purchase confirmation modal when clicking on itself', async function(assert) {
+  test('it shows the purchase confirmation modal when clicking on the buy button', async function(assert) {
     await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
-    await click("li")
+    await click(".book__description-buy")
+
+    assert.ok(/Purchase confirmation/.test(this.element.textContent.trim()));
+  });
+
+  test('it shows the purchase confirmation modal when clicking on the book cover', async function(assert) {
+    await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
+
+    await click(".book__cover")
 
     assert.ok(/Purchase confirmation/.test(this.element.textContent.trim()));
   });
@@ -40,9 +48,9 @@ module('Integration | Component | book-cover', function(hooks) {
   test('it dismisses the purchase confirmation modal when clicking the purchase button', async function(assert) {
     await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
-    await click("li")
+    await click(".book__cover")
 
-    await click("button")
+    await click(".modal .btn")
 
     assert.notOk(/Purchase confirmation/.test(this.element.textContent.trim()));
   });
@@ -55,7 +63,7 @@ module('Integration | Component | book-cover', function(hooks) {
     }
     await render(hbs`<BookCover @book={{this.book}} @blurBackground={{this.blurBackground}}/>`);
 
-    await click("li")
+    await click(".book__cover")
 
     assert.equal(reloaded, true);
   });
