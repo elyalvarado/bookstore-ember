@@ -21,23 +21,21 @@
   --modal-box-shadow: rgba(0,0,0,0.28);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #77b748;
-    --secondary-color: #649bc3;
-    --font-color: #bfbfbf;
-    --alt-font-color: #ffffff;
-    --bg-color: #000000;
-    --heading-color: #c55600;
-    --border-color: #dbdbdb;
-    --font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+body.dark {
+  --primary-color: #77b748;
+  --secondary-color: #649bc3;
+  --font-color: #bfbfbf;
+  --alt-font-color: #ffffff;
+  --bg-color: #000000;
+  --heading-color: #c55600;
+  --border-color: #dbdbdb;
+  --font-family: 'Work Sans', Arial, Helvetica, sans-serif;
 
-    --book-cover-border-color: #afafaf;
-    --book-cover-bg-color: #393939;
+  --book-cover-border-color: #afafaf;
+  --book-cover-bg-color: #393939;
 
-    --modal-bg-color: #506f4a;
-    --modal-box-shadow: rgba(255, 255, 255, 0.28);
-  }
+  --modal-bg-color: #506f4a;
+  --modal-box-shadow: rgba(255, 255, 255, 0.28);
 }
 
 body {
@@ -51,6 +49,33 @@ body {
 
 header {
   background-color: var(--heading-color);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container .toggle:before {
+  font-size: 1em;
+  background-color: var(--bg-color);
+  border-radius: 1em;
+  padding: 4px 25px 2px 2px;
+  cursor: pointer;
+  content: "🌞";
+}
+header .container .toggle:after {
+  font-size: 0.7em;
+  cursor: pointer;
+  content: " dark mode";
+  position: relative;
+  bottom: 3px;
+}
+
+.dark header .container .toggle:before {
+  padding: 4px 2px 2px 25px;
+  content: "🌛";
 }
 
 a {
