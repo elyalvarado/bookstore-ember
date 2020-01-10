@@ -1,3 +1,5 @@
+import ENV from "bookstore/config/environment";
+
 export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -23,6 +25,7 @@ export default function() {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
+
   this.get('/books', (schema, request) => {
     let limit = request.queryParams.limit
     let books = schema.books.all()
@@ -33,4 +36,7 @@ export default function() {
   this.get('/books/:id');
   this.get('/authors');
   this.get('/authors/:id');
+
+  // Allow passthrough to the development server for all other requests
+  this.passthrough(`${ENV.BACKEND_HOST}/**`);
 }

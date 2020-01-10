@@ -49,5 +49,7 @@ module.exports = function(environment) {
     ENV.BACKEND_HOST='https://blooming-retreat-62633.herokuapp.com'
   }
 
+  ENV.BUGSNAG_API_KEY = process.env.BUGSNAG_API_KEY;
+
   return ENV;
 };
